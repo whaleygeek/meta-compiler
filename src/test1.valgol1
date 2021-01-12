@@ -1,0 +1,10 @@
+.BEGIN
+    .VAR X;
+    0 = X;
+    .UNTIL X .= 20 .DO
+    .BEGIN
+        EDIT( X+X, '*');
+        PRINT;
+        X + 1 = X
+    .END
+.END
