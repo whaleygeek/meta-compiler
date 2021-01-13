@@ -8,7 +8,7 @@
 DELCOMMENT = sed "s/^[ \t]*\/\/.*//"
 META = ./meta.py
 DIFF = diff
-GCC = gcc -c
+GCC = gcc -c -E
 LINK = gcc
 
 
@@ -19,17 +19,17 @@ LINK = gcc
 	$(GCC) $< -o $@
 
 # Turn a spec source file into a meta file
-##.PRECIOUS: %.meta
+.PRECIOUS: %.meta
 %.meta: %.spec
 	$(META) < $< > $@
 
 # Turn a lang source program into a C program
-##.PRECIOUS: %.c
+.PRECIOUS: %.c
 %.c: %.lang lang.meta
 	$(DELCOMMENT) < $< | $(META) lang.meta > $@
 
 # Turn a valgol1 source program into a C program
-##.PRECIOUS: %.c
+.PRECIOUS: %.c
 %.c: %.valgol1 valgol1.meta
 	$(DELCOMMENT) < $< | $(META) valgol1.meta > $@
 
@@ -53,6 +53,6 @@ self:
 
 # Tidy up the directory of any generated files
 clean:
-	rm -f *.meta *.res *.self *.o $(TARGETS)
+	rm -f *.meta *.res *.self *.c *.o $(TARGETS)
 
 

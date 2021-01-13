@@ -104,7 +104,7 @@ choosing that will run that code.
 ## Other useful information
 
 * [Analysis of the design of META-II](./analysis.md)
-* [Where meta-II fits into the history of compilers](./history.md)
+* [Notes about my implementation](./implementation.md)
 
 ## References
 
